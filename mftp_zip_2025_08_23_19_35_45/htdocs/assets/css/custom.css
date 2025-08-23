@@ -1,0 +1,404 @@
+/**
+ * CERTOLO Custom Styles
+ * Additional styling for the certification system
+ */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--certolo-medium);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--certolo-dark);
+}
+
+/* Smooth transitions */
+a, button, .btn, .nav-link, .card {
+    transition: all 0.3s ease;
+}
+
+/* Card hover effects */
+.card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom badge colors */
+.badge-draft { background-color: #6c757d; }
+.badge-submitted { background-color: #0dcaf0; }
+.badge-under-review { background-color: #ffc107; color: #000; }
+.badge-approved { background-color: #198754; }
+.badge-rejected { background-color: #dc3545; }
+.badge-issued { background-color: #6f42c1; }
+
+/* Loading spinner */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Responsive tables */
+@media (max-width: 768px) {
+    .table-responsive table {
+        font-size: 0.875rem;
+    }
+    
+    .table-responsive .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar, .footer, .btn, .page-header {
+        display: none !important;
+    }
+    
+    .page-body {
+        padding: 0 !important;
+    }
+}
+
+/* Animation for notifications */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-toast {
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* File upload area */
+.upload-area {
+    border: 2px dashed var(--certolo-medium);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.upload-area:hover {
+    border-color: var(--certolo-dark);
+    background-color: var(--certolo-bg-off);
+}
+
+.upload-area.dragover {
+    border-color: var(--certolo-accent);
+    background-color: rgba(255, 152, 0, 0.1);
+}
+
+/* Status timeline */
+.status-timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.status-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e9ecef;
+}
+
+.status-timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.status-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #e9ecef;
+}
+
+.status-timeline-item.active::before {
+    background: var(--certolo-medium);
+    border-color: var(--certolo-medium);
+}
+
+.status-timeline-item.completed::before {
+    background: var(--certolo-light);
+    border-color: var(--certolo-light);
+}
+
+/* Certificate preview */
+.certificate-preview {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Sticky table header */
+.table-sticky-header thead th {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero section gradient overlay */
+.page-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.95) 0%, rgba(46, 125, 50, 0.95) 100%);
+    z-index: -1;
+}
+
+/* Feature cards */
+.feature-card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Form enhancements */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--certolo-medium);
+    box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--certolo-medium);
+    border-color: var(--certolo-medium);
+}
+
+/* Password strength indicator */
+.password-strength {
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.password-strength.weak { background-color: #dc3545; width: 33%; }
+.password-strength.medium { background-color: #ffc107; width: 66%; }
+.password-strength.strong { background-color: #198754; width: 100%; }
+
+/* Dashboard stats cards */
+.stats-card {
+    border: none;
+    border-left: 4px solid var(--certolo-medium);
+}
+
+.stats-card .h1 {
+    font-weight: 700;
+}
+
+/* Application status steps */
+.status-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.status-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.status-step::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    right: -50%;
+    height: 2px;
+    background: #e9ecef;
+    z-index: -1;
+}
+
+.status-step:last-child::before {
+    display: none;
+}
+
+.status-step.completed::before {
+    background: var(--certolo-light);
+}
+
+.status-step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e9ecef;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.status-step.active .status-step-icon {
+    background: var(--certolo-medium);
+    color: white;
+}
+
+.status-step.completed .status-step-icon {
+    background: var(--certolo-light);
+    color: white;
+}
+
+/* Mobile menu improvements */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+    }
+    
+    .certolo-logo-text {
+        font-size: 1.25rem;
+    }
+    
+    .certolo-logo-icon {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode styles here if needed */
+}
+
+/* Utility classes */
+.opacity-75 { opacity: 0.75; }
+.opacity-50 { opacity: 0.5; }
+.opacity-25 { opacity: 0.25; }
+
+.min-h-100 { min-height: 100px; }
+.min-h-200 { min-height: 200px; }
+.min-h-300 { min-height: 300px; }
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+/* Certificate frame */
+.certificate-frame {
+    border: 2px solid var(--certolo-medium);
+    border-radius: 8px;
+    padding: 3rem;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.certificate-frame::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid var(--certolo-light);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+/* Success checkmark animation */
+@keyframes checkmark {
+    0% {
+        stroke-dashoffset: 100;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke: var(--certolo-medium);
+    animation: checkmark 0.6s ease-out forwards;
+}
+
+/* Loading dots */
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '...';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+}
